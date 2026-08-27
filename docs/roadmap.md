@@ -58,7 +58,14 @@ notebook is built, not assumed for convenience.
    a periodic gas composition/water-content assay. *(Tier A/B — reuses the
    EOS layer for a dew-point calculation instead of bubble point; accurate
    water+hydrocarbon VLE typically needs an associating model, e.g.
-   CPA, rather than a plain cubic EOS.)*
+   CPA, rather than a plain cubic EOS.)* **Attempted and parked:**
+   `Clapeyron.dew_temperature` for a methane/water binary hung
+   (no CPU progress after 1+ min) with both `CPA(["methane","water"])`
+   and plain `PR(["methane","water"])` in this environment — not just
+   slow-to-compile, genuinely stuck. Worth retrying with more
+   investigation time (different solver options, a better-conditioned
+   starting composition, or an industry-standard empirical correlation
+   like Bukacek instead of a full EOS) before building this notebook.
 8. **Virtual flow metering** (wellhead/gathering line, no multiphase meter)
    — back out oil/water/gas rates from wellhead P, choke position, and a
    mechanistic multiphase flow correlation calibrated against periodic well
