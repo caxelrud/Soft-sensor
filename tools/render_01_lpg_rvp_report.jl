@@ -79,6 +79,15 @@ This notebook builds that estimator using
 cubic (Peng-Robinson) equation of state for a typical LPG mixture
 (propane / n-butane / isobutane / n-pentane).
 
+**Measurements assumed available:** stream composition (x, e.g. from a GC
+or material balance) and temperature (T).
+**Inferred / computed by this soft sensor:** bubble-point pressure (RVP proxy).
+**Tier:** A — direct calculation from an EOS, no process simulation
+required (see `docs/measurement_tiers.md`).
+In practice composition is often the measurement you *don't* have — if
+that's the case here, this becomes a Tier B problem (infer composition
+from T/P first) instead.
+
 > This is a teaching/demo report with representative, not plant-specific,
 > data, evaluated at a fixed operating point (the interactive notebook
 > version lets you adjust composition and temperature with sliders).

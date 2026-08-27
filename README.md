@@ -23,6 +23,18 @@ statistical or ML correction models where useful.
 - Extend to other industrial domains (power, water treatment, food & beverage,
   pulp & paper, etc.) once the petro-chemical patterns are established.
 
+## Design principle: scope by measurement availability
+
+What a soft sensor can do is set by what's actually instrumented on the
+real unit, not by what's convenient to assume. The fewer states are
+directly measured (composition especially), the more the soft sensor has
+to simulate/estimate rather than just evaluate a property from known
+conditions. Every notebook is scoped against this explicitly — see
+[`docs/measurement_tiers.md`](docs/measurement_tiers.md) for the tier
+definitions (A: direct calculation, B: local inversion, C: full process
+simulation/state estimation) and [`docs/roadmap.md`](docs/roadmap.md) for
+how each planned soft sensor is tagged.
+
 ## Tech stack
 
 - **Julia** for all modeling code.
