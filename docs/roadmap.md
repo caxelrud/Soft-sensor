@@ -31,19 +31,37 @@ notebook is built, not assumed for convenience.
    feed composition typically comes from an infrequent well test; drops to
    Tier C with no feed composition at all.)* —
    `notebooks/02_separator_flash_soft_sensor.jl`
-3. **Distillation tray temperature → composition inference** — classic
+3. ✅ **Midstream terminal blending soft sensor** — blended-tank RVP proxy
+   from each incoming stream's periodic lab assay plus continuous
+   custody-transfer flow rates, no analyzer on the blend itself. *(Tier A
+   given per-stream assays, even if only periodic; drops to Tier C if
+   those assays are unavailable and blend ratios must be inferred from
+   historical correlations instead.)* —
+   `notebooks/03_terminal_blending_soft_sensor.jl`
+4. **Distillation tray temperature → composition inference** — classic
    refinery application (e.g. debutanizer, depropanizer). *(Tier B — this
    is the canonical "infer composition from T/P" problem; if fewer trays
    are instrumented than exist, drops to Tier C.)*
-4. **Stabilizer column RVP control** — combine EOS-based property estimate
+5. **Stabilizer column RVP control** — combine EOS-based property estimate
    with a simple data-driven bias/trim correction against lab samples.
    *(Tier B or C depending on how many internal temperatures are
    available; start Tier B, note where a full column simulation becomes
    necessary.)*
-5. **Crude/naphtha cut-point estimation** — TBP-curve-based inferential
+6. **Crude/naphtha cut-point estimation** — TBP-curve-based inferential
    properties from column T/P profile. *(Tier C — typically only a handful
    of boundary/draw temperatures are measured on a real crude unit; needs
    a reduced-order column simulation reconciled against those.)*
+7. **Water dew-point / hydrate risk soft sensor** (gas pipeline) — infer
+   water condensation/hydrate risk along a pipeline from a P/T profile and
+   a periodic gas composition/water-content assay. *(Tier A/B — reuses the
+   EOS layer for a dew-point calculation instead of bubble point; accurate
+   water+hydrocarbon VLE typically needs an associating model, e.g.
+   CPA, rather than a plain cubic EOS.)*
+8. **Virtual flow metering** (wellhead/gathering line, no multiphase meter)
+   — back out oil/water/gas rates from wellhead P, choke position, and a
+   mechanistic multiphase flow correlation calibrated against periodic well
+   tests. *(Tier C — the biggest lift on this list: needs a multiphase flow
+   model in addition to the thermodynamics layer, not just an EOS.)*
 
 ## Modeling approach
 
