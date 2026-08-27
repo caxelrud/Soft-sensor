@@ -1,0 +1,15 @@
+# Julia
+*.jl.cov
+*.jl.*.cov
+*.jl.mem
+/docs/build/
+.CondaPkg/
+
+# Pluto
+*.jl.backup
+
+# OS
+.DS_Store
+
+# Editors
+.vscode/
