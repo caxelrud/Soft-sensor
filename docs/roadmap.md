@@ -20,15 +20,17 @@ actually assumed measured vs. reconstructed by simulation/estimation. Tier
 should be confirmed against a real unit's instrumentation list before a
 notebook is built, not assumed for convenience.
 
-1. **LPG/NGL bubble-point & RVP-like proxy** — from stream composition and
+1. ✅ **LPG/NGL bubble-point & RVP-like proxy** — from stream composition and
    temperature via a cubic EOS. *(Tier A — direct calculation. First
    notebook, built to establish the thermodynamics layer; a real
    deployment is usually Tier B since composition is the missing
-   measurement.)*
-2. **Flash drum / separator soft sensor** — vapor fraction and K-values from
-   feed composition, T, P. *(Tier A if feed composition is measured, Tier B
-   if only T/P are available and composition must be backed out via
-   flash-equilibrium inversion.)*
+   measurement.)* — `notebooks/01_lpg_rvp_soft_sensor.jl`
+2. ✅ **Flash drum / separator soft sensor** — vapor fraction and gas/liquid
+   composition from feed composition, T, P via a PT flash. *(Tier A given a
+   periodically-updated feed composition — separator T/P are continuous,
+   feed composition typically comes from an infrequent well test; drops to
+   Tier C with no feed composition at all.)* —
+   `notebooks/02_separator_flash_soft_sensor.jl`
 3. **Distillation tray temperature → composition inference** — classic
    refinery application (e.g. debutanizer, depropanizer). *(Tier B — this
    is the canonical "infer composition from T/P" problem; if fewer trays

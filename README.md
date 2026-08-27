@@ -90,11 +90,12 @@ tools/render_pdf.sh pdf/01_lpg_rvp_soft_sensor.html pdf/01_lpg_rvp_soft_sensor.p
 
 | Notebook | Description |
 |---|---|
-| [`01_lpg_rvp_soft_sensor.jl`](notebooks/01_lpg_rvp_soft_sensor.jl) | Inferring an LPG stream's bubble-point pressure (an RVP-like proxy) from composition and temperature using a cubic EOS, as a stand-in for an online analyzer. |
+| [`01_lpg_rvp_soft_sensor.jl`](notebooks/01_lpg_rvp_soft_sensor.jl) | Inferring an LPG stream's bubble-point pressure (an RVP-like proxy) from composition and temperature using a cubic EOS, as a stand-in for an online analyzer. *(Tier A)* |
+| [`02_separator_flash_soft_sensor.jl`](notebooks/02_separator_flash_soft_sensor.jl) | Inferring a gas-oil separator's vapor fraction and gas/liquid product compositions from continuous T/P plus a periodically-updated feed composition, via a PT flash. *(Tier A, degrades to Tier C without any feed composition.)* |
 
 ## Roadmap
 
-- [ ] Flash-drum / separator soft sensor (K-values, vapor fraction from T/P/composition)
+- [x] Flash-drum / separator soft sensor (vapor fraction, gas/liquid composition from T/P + periodic feed composition)
 - [ ] Distillation tray-temperature-to-composition inferential estimator
 - [ ] Naphtha/LPG stabilizer RVP soft sensor with plant-representative data
 - [ ] Compare EOS-based estimates against data-driven (regression/ML) baselines
