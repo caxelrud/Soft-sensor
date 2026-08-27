@@ -94,12 +94,13 @@ tools/render_pdf.sh pdf/01_lpg_rvp_soft_sensor.html pdf/01_lpg_rvp_soft_sensor.p
 | [`01_lpg_rvp_soft_sensor.jl`](notebooks/01_lpg_rvp_soft_sensor.jl) | Inferring an LPG stream's bubble-point pressure (an RVP-like proxy) from composition and temperature using a cubic EOS, as a stand-in for an online analyzer. *(Tier A)* |
 | [`02_separator_flash_soft_sensor.jl`](notebooks/02_separator_flash_soft_sensor.jl) | Inferring a gas-oil separator's vapor fraction and gas/liquid product compositions from continuous T/P plus a periodically-updated feed composition, via a PT flash. *(Tier A, degrades to Tier C without any feed composition.)* |
 | [`03_terminal_blending_soft_sensor.jl`](notebooks/03_terminal_blending_soft_sensor.jl) | Inferring a midstream blending terminal's blended-tank RVP proxy from each incoming stream's periodic lab assay and continuous flow rate, with no analyzer on the blend itself. *(Tier A, degrades to Tier C without per-stream assays.)* |
+| [`04_tray_temperature_composition_soft_sensor.jl`](notebooks/04_tray_temperature_composition_soft_sensor.jl) | Inferring a distillation tray's liquid composition from tray temperature and column pressure alone, by inverting the bubble-point relationship for a binary key-component system. *(Tier B — the first local-inversion example.)* |
 
 ## Roadmap
 
 - [x] Flash-drum / separator soft sensor (vapor fraction, gas/liquid composition from T/P + periodic feed composition)
 - [x] Midstream terminal blending soft sensor (blended RVP proxy from per-stream assays + continuous flows, no blend analyzer)
-- [ ] Distillation tray-temperature-to-composition inferential estimator
+- [x] Distillation tray-temperature-to-composition inferential estimator (Tier B)
 - [ ] Naphtha/LPG stabilizer RVP soft sensor with plant-representative data
 - [ ] Compare EOS-based estimates against data-driven (regression/ML) baselines
 - [ ] Package reusable soft-sensor building blocks into `src/`

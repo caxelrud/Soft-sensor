@@ -38,10 +38,12 @@ notebook is built, not assumed for convenience.
    those assays are unavailable and blend ratios must be inferred from
    historical correlations instead.)* —
    `notebooks/03_terminal_blending_soft_sensor.jl`
-4. **Distillation tray temperature → composition inference** — classic
-   refinery application (e.g. debutanizer, depropanizer). *(Tier B — this
-   is the canonical "infer composition from T/P" problem; if fewer trays
-   are instrumented than exist, drops to Tier C.)*
+4. ✅ **Distillation tray temperature → composition inference** — classic
+   refinery application (depropanizer, binary propane/n-butane key
+   components). *(Tier B — the canonical "infer composition from T/P"
+   problem, solved by numerically inverting `bubble_temperature`; breaks
+   down toward Tier C if non-key components are non-trivial.)* —
+   `notebooks/04_tray_temperature_composition_soft_sensor.jl`
 5. **Stabilizer column RVP control** — combine EOS-based property estimate
    with a simple data-driven bias/trim correction against lab samples.
    *(Tier B or C depending on how many internal temperatures are
